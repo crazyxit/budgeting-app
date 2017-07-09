@@ -13,7 +13,7 @@ var gulp       = require('gulp'),
     cssnano = require('gulp-cssnano');
 
 gulp.task('styles', function () {
-    return gulp.src('prototype/scss/**/*.scss')
+    return gulp.src('prototype/scss/styles.scss')
         .pipe(sass({outputStyle: 'expanded'}))
         .pipe(rename({ suffix: '.min' }))
         .pipe(cssnano())
