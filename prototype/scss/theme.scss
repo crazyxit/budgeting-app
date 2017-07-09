@@ -2,6 +2,21 @@ body{
   font-family: Arial;
 }
 
-$background-color: #fff;
-$background-primary-color: #006c36;
-$background-secondary-color: #00a652;
+$background-color: #F4F3EE;
+$background-primary-color: #D9E2E1;
+$background-secondary-color: #A2ADBC;
+
+$text-color: #727B84;
+$text-secondary-color: #B7AFA3;
+$text-hover-color: #DF9496;
+
+@mixin heading{
+  color: $text-color;
+  &:hover{
+    color: $text-hover-color;
+  }
+}
+
+h1{
+  @include heading;
+}
