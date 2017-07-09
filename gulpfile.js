@@ -13,7 +13,7 @@ var gulp       = require('gulp'),
     cssnano = require('gulp-cssnano');
 
 gulp.task('styles', function () {
-    return gulp.src('public_html/prototype/scss/styles.scss')
+    return gulp.src('prototype/scss/styles.scss')
         .pipe(sass({outputStyle: 'expanded'}))
         .pipe(rename({ suffix: '.min' }))
         .pipe(cssnano())
@@ -22,7 +22,7 @@ gulp.task('styles', function () {
 });
 
 gulp.task('scripts', function () {
-    gulp.src('public_html/prototype/js/**/*.js')
+    gulp.src('prototype/js/**/*.js')
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('public_html/assets/js'))
@@ -38,10 +38,10 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', function() {
 
     // Watch .scss files
-    gulp.watch('public_html/prototype/scss/**/*.scss', ['styles']);
+    gulp.watch('prototype/scss/**/*.scss', ['styles']);
 
     // Watch .js files
-    gulp.watch('public_html/prototype/js/**/*.js', ['scripts']);
+    gulp.watch('prototype/js/**/*.js', ['scripts']);
 
     // Create LiveReload server
     livereload.listen();
