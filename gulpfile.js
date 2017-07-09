@@ -13,19 +13,19 @@ var gulp       = require('gulp'),
     cssnano = require('gulp-cssnano');
 
 gulp.task('styles', function () {
-    return gulp.src('prototype/scss/styles.scss')
+    return gulp.src('public_html/prototype/scss/styles.scss')
         .pipe(sass({outputStyle: 'expanded'}))
         .pipe(rename({ suffix: '.min' }))
         .pipe(cssnano())
-        .pipe(gulp.dest('assets/css'))
+        .pipe(gulp.dest('public_html/assets/css'))
         .pipe(notify({ message: 'Styles task complete' }));
 });
 
 gulp.task('scripts', function () {
-    gulp.src('prototype/js/**/*.js')
+    gulp.src('public_html/prototype/js/**/*.js')
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('assets/js'))
+        .pipe(gulp.dest('public_html/assets/js'))
         .pipe(notify({ message: 'Scripts task complete' }));
 });
 
@@ -38,14 +38,14 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', function() {
 
     // Watch .scss files
-    gulp.watch('prototype/scss/**/*.scss', ['styles']);
+    gulp.watch('public_html/prototype/scss/**/*.scss', ['styles']);
 
     // Watch .js files
-    gulp.watch('prototype/js/**/*.js', ['scripts']);
+    gulp.watch('public_html/prototype/js/**/*.js', ['scripts']);
 
     // Create LiveReload server
     livereload.listen();
 
     // Watch any files in dist/, reload on change
-    gulp.watch(['assets/**']).on('change', livereload.changed);
+    gulp.watch(['public_html/assets/**']).on('change', livereload.changed);
 });
